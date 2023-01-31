@@ -1,5 +1,6 @@
 
 alert('Bienvenido. Primero ingrese el nombre del juego que desea comprar');
+
 alert(`Lista de juegos disponibles:
 -resident evil
 -battlefield
@@ -7,20 +8,14 @@ alert(`Lista de juegos disponibles:
 
 let ingresar = prompt('Ingresar nombre del juego');
 
-let juego1 = {
-    nombre: 'resident evil',
-    precio: '$3500'
+function Juego(nombre, precio) {
+    this.nombre = nombre;
+    this.precio = precio;
 }
 
-let juego2 = {
-    nombre: 'battlefield',
-    precio: '$2000'
-}
-
-let juego3 = {
-    nombre: 'gta',
-    precio: '$2500'
-}
+const juego1 = new Juego('resident evil', '$3500');
+const juego2 = new Juego('battlefield', '$2000');
+const juego3 = new Juego('gta', '$2500');
 
 
 for (let i = 0; i < 15; i++) {
