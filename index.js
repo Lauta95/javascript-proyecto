@@ -33,3 +33,4 @@ while (ingresar != 'salir') {
     }
     ingresar = prompt(`¿Que juego desea agregar al carrito?`);
 }
+ 
