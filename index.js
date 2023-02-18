@@ -1,54 +1,35 @@
+let total = 0;
 
-let nombreUsuario = prompt('Ingrese su nombre');
+const juegos = [
+    { id: 1, nombre: 'dark souls', precio: 1500 },
+    { id: 2, nombre: 'gta', precio: 2500 },
+    { id: 3, nombre: 'resident evil', precio: 5500 },
+    { id: 4, nombre: 'counter strike', precio: 100 },
+    { id: 5, nombre: 'age of empires', precio: 500 },
+    { id: 6, nombre: 'hitman', precio: 1450 },
+    { id: 7, nombre: 'outlast', precio: 1000 },
+    { id: 8, nombre: 'god of war', precio: 2575 }
+];
 
-alert(`Bienvenido ${nombreUsuario}. Primero ingrese el nombre del juego que desea comprar`);
+let usuario = prompt(`Hola, ingrese su nombre por favor`);
 
-alert(`${nombreUsuario}, esta es nuestra lista de juegos disponibles:
--resident evil
--battlefield
--gta`);
+const nombres = juegos.map(juego => juego.nombre)
 
-let ingresar = prompt('Ingresar nombre del juego');
-
-function Juego(nombre, precio) {
-    this.nombre = nombre;
-    this.precio = precio;
-}
-
-const juego1 = new Juego('resident evil', 3500);
-const juego2 = new Juego('battlefield', 2000);
-const juego3 = new Juego('gta', 2500);
+alert(`¡Bienvenido ${usuario}! Este es nuestro listado de juegos:${nombres}`);
 
 let totalCompra = 0;
 
+let ingresar = prompt(`¿Que juego desea agregar al carrito?`);
+
+
 while (ingresar != 'salir') {
-    if (ingresar == juego1.nombre) {
-        let agregar = prompt(`el precio del juego es de $${juego1.precio}, ¿desea agregar al carrito?`);
-        if (agregar == 'agregar' || agregar == 'si') {
-            totalCompra += juego1.precio;
-            alert('agregado');
-        } else {
-            alert('juego no agregado');
-        }
-    } else if (ingresar == juego2.nombre) {
-        let agregar = prompt(`el precio del juego es de $${juego2.precio}, ¿desea agregar al carrito?`);
-        if (agregar == 'agregar' || agregar == 'si') {
-            totalCompra += juego2.precio;
-            alert('agregado');
-        } else {
-            alert('juego no agregado');
-        }
-    } else if (ingresar == juego3.nombre) {
-        let agregar = prompt(`el precio del juego es de $${juego3.precio}, ¿desea agregar al carrito?`);
-        if (agregar == 'agregar' || agregar == 'si') {
-            totalCompra += juego3.precio;
-            alert('agregado');
-        } else {
-            alert('juego no agregado');
-        }
-    } else {
-        alert(`${ingresar} no está disponible`);
+    const buscar = juegos.find(juego => juego.nombre == ingresar);
+    let agregar = prompt(`El precio del juego ${buscar.nombre} es de $${buscar.precio}, ¿desea agregar al carrito? Ingrese si o no:`);
+    if (agregar == 'si') {
+        totalCompra += buscar.precio;
+        alert(`Juego agregado. Total: $${totalCompra}`);
+    } else if (agregar == 'no') {
+        alert('juego no agregado');
     }
-    alert(`Precio total $${totalCompra}`);
-    ingresar = prompt('Ingresar nombre del juego');
+    ingresar = prompt(`¿Que juego desea agregar al carrito?`);
 }
