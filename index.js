@@ -1,4 +1,3 @@
-let total = 0;
 
 const juegos = [
     { id: 1, nombre: 'dark souls', precio: 1500 },
@@ -21,7 +20,6 @@ let totalCompra = 0;
 
 let ingresar = prompt(`¿Que juego desea agregar al carrito?`);
 
-
 while (ingresar != 'salir') {
     const buscar = juegos.find(juego => juego.nombre == ingresar);
     let agregar = prompt(`El precio del juego ${buscar.nombre} es de $${buscar.precio}, ¿desea agregar al carrito? Ingrese si o no:`);
@@ -33,4 +31,3 @@ while (ingresar != 'salir') {
     }
     ingresar = prompt(`¿Que juego desea agregar al carrito?`);
 }
- 
