@@ -13,7 +13,7 @@ const juegos = [
 
 let usuario = prompt(`Hola, ingrese su nombre por favor`);
 
-const nombres = juegos.map(juego => juego.nombre)
+const nombres = juegos.map(juego => juego.nombre);
 
 alert(`¡Bienvenido ${usuario}! Este es nuestro listado de juegos:${nombres}`);
 
