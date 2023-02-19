@@ -1,4 +1,4 @@
-// // Array de objetos
+// Array de objetos
 const juegos = [
     { id: 1, nombre: 'dark souls', precio: 1500 },
     { id: 2, nombre: 'gta', precio: 2500 },
@@ -42,6 +42,7 @@ carro.listarJuegos();
 let ingresar = prompt(`¿Que juego desea agregar al carrito? Para terminar su compra ingrese terminar`);
 // Ciclo para agregar juegos al carrito
 while (ingresar != 'terminar') {
+    // Buscador de objetos en la lista según lo que introduzca el usuario
     const buscar = juegos.find(juego => juego.nombre == ingresar);
     let agregar = prompt(`${usuario}, el precio del juego ${buscar.nombre} es de $${buscar.precio}, ¿desea agregar al carrito? Ingrese si o no:`);
     if (agregar == 'si') {
@@ -53,7 +54,9 @@ while (ingresar != 'terminar') {
     }
     ingresar = prompt(`¿Que juego desea agregar al carrito?`);
 }
-alert(`${carro.listarJuegos()} 
+alert(`Productos adquiridos:
+${carro.listarJuegos()} 
+
 Total de la compra: ${totalCompra}`);
 
 
