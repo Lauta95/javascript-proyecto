@@ -39,7 +39,7 @@ let carro = new Carrito();
 
 carro.listarJuegos();
 
-let ingresar = prompt(`¿Que juego desea agregar al carrito?`);
+let ingresar = prompt(`¿Que juego desea agregar al carrito? Para terminar su compra ingrese terminar`);
 // Ciclo para agregar juegos al carrito
 while (ingresar != 'terminar') {
     const buscar = juegos.find(juego => juego.nombre == ingresar);
