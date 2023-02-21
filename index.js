@@ -28,6 +28,11 @@ carrito.forEach(juego => {
 
 
 
+// function botonComprar() {
+//     document.getElementById("listarEnCarrito").innerHTML += 
+// }
+
+
 
 // Método para mostrar los juegos
 // const nombres = juegos.map(juego => juego.nombre);
@@ -72,8 +77,3 @@ carrito.forEach(juego => {
 // ${carro.listarJuegos()}
 
 // Total de la compra: ${totalCompra}`);
-
-
-
-
-
