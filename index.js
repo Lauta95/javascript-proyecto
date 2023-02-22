@@ -1,79 +1,57 @@
-
-const carrito = [];
-
+// Se crea una clase para generar los juegos
 class Juego {
-    constructor(nombreJuego, precioJuego) {
-        this.juego = nombreJuego;
-        this.precio = precioJuego
+    constructor(id, nombreJuego, precioJuego) {
+        this.nombre = nombreJuego;
+        this.precio = precioJuego;
+        this.id = id;
+    }
+}
+// Se crea una clase para guardar los juegos generados en el carrito
+class Carrito {
+    constructor() {
+        this.carrito = [];
+    }
+// Se crean los 3 métodos para agregar quitar y listar.
+    agregarJuego(juegoAgregado) {
+        this.carrito.push(juegoAgregado)
+    }
+
+    quitarJuego(id) {
+        this.carrito = this.carrito.filter(juego => juego.id !== id);
+    }
+    
+    listarJuegos() {
+        return this.carrito.map(juego => '- ' + juego.nombre + ': ' + juego.precio).join("\n");
+    }
+}
+// Se crea un nuevo carro para guardar los elementos en la clase carrito
+let nuevoCarro = new Carrito();
+
+// Se cargan los juegos con un new en las clases
+let juego1 = new Juego(1, "dark souls", 8599);
+let juego2 = new Juego(2, "gta", 5698);
+let juego3 = new Juego(3, "resident evil", 5500);
+let juego4 = new Juego(4, "god of war", 4199);
+
+const juegos = [juego1, juego2, juego3, juego4];
+
+function botonComprar(id) {
+    for (let i = 0; i < juegos.length; i++) {
+        if (id == juegos[i].id) {
+            nuevoCarro.agregarJuego(juegos[i]);
+        }
     }
 }
 
-agregarCarrito = new Juego("dark souls", 8599);
-agregarCarrito2 = new Juego("gta", 5698);
-agregarCarrito3 = new Juego("resident evil", 5500);
-agregarCarrito4 = new Juego("god of war", 4199);
+function botonQuitar(id) {
+    for (let i = 0; i < juegos.length; i++) {
+        if (id == juegos[i].id) {
+            nuevoCarro.quitarJuego(id);
+        }
+    }
+}
 
-const alCarrito = carrito.push(agregarCarrito);
-const alCarrito2 = carrito.push(agregarCarrito2);
-const alCarrito3 = carrito.push(agregarCarrito3);
-const alCarrito4 = carrito.push(agregarCarrito4);
+const listarEnCarrito = document.getElementById("listarEnCarrito");
 
-//  
+listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
 
-const listar = document.getElementById("listarEnCarrito");
-
-carrito.forEach(juego => {
-    listar.innerHTML += `<li><a class="dropdown-item" href="#">${JSON.stringify(juego)}</a></li>`;
-})
-
-
-
-// function botonComprar() {
-//     document.getElementById("listarEnCarrito").innerHTML += 
-// }
-
-
-
-// Método para mostrar los juegos
-// const nombres = juegos.map(juego => juego.nombre);
-
-// let totalCompra = 0;
-
-// Utilización de clases para mostrar los juegos agregados en un carrito
-// class Carrito {
-//     constructor() {
-//         this.carrito = [];
-//     }
-
-//     agregarJuego(nombre, precio) {
-//         this.carrito.push({ nombre, precio })
-//     }
-
-//     listarJuegos() {
-//         return this.carrito.map(juego => '- ' + juego.nombre + ': ' + juego.precio).join('\n')
-//     }
-// }
-
-// let carro = new Carrito();
-
-// carro.listarJuegos();
-
-// let ingresar = prompt(`¿Que juego desea agregar al carrito? Para terminar su compra ingrese terminar`);
-// // Ciclo para agregar juegos al carrito
-// while (ingresar != 'terminar') {
-//     // Buscador de objetos en la lista según lo que introduzca el usuario
-//     const buscar = juegos.find(juego => juego.nombre == ingresar);
-//     let agregar = prompt(`${usuario}, el precio del juego ${buscar.nombre} es de $${buscar.precio}, ¿desea agregar al carrito? Ingrese si o no:`);
-//     if (agregar == 'si') {
-//         totalCompra += buscar.precio;
-//         alert(`Juego agregado. Total: $${totalCompra}`);
-//         carro.agregarJuego(buscar.nombre, buscar.precio);
-//     } else if (agregar == 'no') {
-//         alert('juego no agregado');
-//     }
-//     ingresar = prompt(`¿Que juego desea agregar al carrito?`);
-// }
-// alert(`Productos adquiridos:
-// ${carro.listarJuegos()}
-
-// Total de la compra: ${totalCompra}`);
