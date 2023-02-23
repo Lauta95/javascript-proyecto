@@ -21,17 +21,17 @@ class Carrito {
     }
     
     listarJuegos() {
-        return this.carrito.map(juego => '- ' + juego.nombre + ': ' + juego.precio).join("\n");
+        return this.carrito.map(juego => `${juego.nombre}: $${juego.precio}`).join(" ||\n");
     }
 }
 // Se crea un nuevo carro para guardar los elementos en la clase carrito
 let nuevoCarro = new Carrito();
 
 // Se cargan los juegos con un new en las clases
-let juego1 = new Juego(1, "dark souls", 8599);
-let juego2 = new Juego(2, "gta", 5698);
-let juego3 = new Juego(3, "resident evil", 5500);
-let juego4 = new Juego(4, "god of war", 4199);
+let juego1 = new Juego(1, "Dark Souls 3", 8599);
+let juego2 = new Juego(2, "Gta 5", 5698);
+let juego3 = new Juego(3, "Resident Evil 4", 5500);
+let juego4 = new Juego(4, "God Of War", 4199);
 
 const juegos = [juego1, juego2, juego3, juego4];
 
@@ -53,5 +53,5 @@ function botonQuitar(id) {
 
 const listarEnCarrito = document.getElementById("listarEnCarrito");
 
-listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
+listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML += nuevoCarro.listarJuegos();
 
