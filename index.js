@@ -6,12 +6,13 @@ class Juego {
         this.id = id;
     }
 }
+
 // Se crea una clase para guardar los juegos generados en el carrito
 class Carrito {
     constructor() {
         this.carrito = [];
     }
-// Se crean los 3 métodos para agregar quitar y listar.
+    // Se crean los 3 métodos para agregar quitar y listar.
     agregarJuego(juegoAgregado) {
         this.carrito.push(juegoAgregado)
     }
@@ -19,11 +20,16 @@ class Carrito {
     quitarJuego(id) {
         this.carrito = this.carrito.filter(juego => juego.id !== id);
     }
-    
+
     listarJuegos() {
-        return this.carrito.map(juego => `${juego.nombre}: $${juego.precio}`).join(" ||\n");
+        return this.carrito.map(juego => `<li><a class="dropdown-item" href="#">${juego.nombre}: $${juego.precio}</a></li>`);
+    }
+
+    mostrarTotal() {
+        return 
     }
 }
+
 // Se crea un nuevo carro para guardar los elementos en la clase carrito
 let nuevoCarro = new Carrito();
 
@@ -53,5 +59,4 @@ function botonQuitar(id) {
 
 const listarEnCarrito = document.getElementById("listarEnCarrito");
 
-listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML += nuevoCarro.listarJuegos();
-
+listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
