@@ -26,7 +26,8 @@ class Carrito {
     }
 
     mostrarTotal() {
-        return 
+        return this.carrito.reduce((total, item) => total + item )
+        // ahora agregar una variable que muestre esto
     }
 }
 
