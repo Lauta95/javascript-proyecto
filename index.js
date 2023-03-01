@@ -11,24 +11,26 @@ class Juego {
 class Carrito {
     constructor() {
         this.carrito = [];
+        // this.precios = [];
     }
     // Se crean los 3 métodos para agregar quitar y listar.
+    // set
     agregarJuego(juegoAgregado) {
         this.carrito.push(juegoAgregado)
     }
-
+    // delete
     quitarJuego(id) {
         this.carrito = this.carrito.filter(juego => juego.id !== id);
     }
-
+    // get
     listarJuegos() {
         return this.carrito.map(juego => `<li><a class="dropdown-item" href="#">${juego.nombre}: $${juego.precio}</a></li>`);
     }
-
-    mostrarTotal() {
-        return this.carrito.reduce((total, item) => total + item )
+    // get
+    // mostrarTotal() {
+        // return this.precios.reduce((total, item) => total + item)
         // ahora agregar una variable que muestre esto
-    }
+    // }
 }
 
 // Se crea un nuevo carro para guardar los elementos en la clase carrito
@@ -41,6 +43,8 @@ let juego3 = new Juego(3, "Resident Evil 4", 5500);
 let juego4 = new Juego(4, "God Of War", 4199);
 
 const juegos = [juego1, juego2, juego3, juego4];
+
+const totalAcumulador = 0;
 
 function botonComprar(id) {
     for (let i = 0; i < juegos.length; i++) {
