@@ -70,8 +70,3 @@ function botonQuitar(id) {
 const listarEnCarrito = document.getElementById("listarEnCarrito");
 
 listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
-
-function crearTarjetaCarrito(juego) {
-    let tarjeta = document.createElement('div')
-    tarjeta.classList.add('tarjeta')
-}
