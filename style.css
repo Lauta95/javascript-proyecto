@@ -1,3 +1,20 @@
 .carrito {
     width: 400px;
 }
+
+.tarjeta {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.imagenTarjeta {
+    width: 200px;
+}
+
+.imgTarjeta {
+    width: 100%;
+}

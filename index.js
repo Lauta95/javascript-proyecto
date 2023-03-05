@@ -6,7 +6,6 @@ class Juego {
         this.id = id;
     }
 }
-
 // Se crea una clase para guardar los juegos generados en el carrito
 class Carrito {
     constructor() {
@@ -25,11 +24,10 @@ class Carrito {
     listarJuegos() {
         return this.carrito.map(juego => `<li><a class="dropdown-item" href="#">${juego.nombre}: $${juego.precio}</a></li>`);
     }
-
+    // métodos para guardar en local storage
     guardarLocal() {
         localStorage.setItem('ID', JSON.stringify(this.carrito));
     }
-
     cargarLocal() {
         let guardar = localStorage.getItem('ID');
         if (guardar) {
@@ -37,7 +35,6 @@ class Carrito {
         }
     }
 }
-
 // Se crea un nuevo carro para guardar los elementos en la clase carrito
 let nuevoCarro = new Carrito();
 nuevoCarro.cargarLocal()
@@ -61,7 +58,6 @@ function botonComprar(id) {
         }
     }
 }
-
 function botonQuitar(id) {
     for (let i = 0; i < juegos.length; i++) {
         if (id == juegos[i].id) {
@@ -74,3 +70,8 @@ function botonQuitar(id) {
 const listarEnCarrito = document.getElementById("listarEnCarrito");
 
 listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
+
+function crearTarjetaCarrito(juego) {
+    let tarjeta = document.createElement('div')
+    tarjeta.classList.add('tarjeta')
+}
