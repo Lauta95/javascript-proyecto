@@ -71,43 +71,48 @@ const listarEnCarrito = document.getElementById("listarEnCarrito");
 
 listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
 
-const listarEnCarrito = document.getElementById("listarEnCarrito");
-listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos();
-
 // Tomo el elemento root
 const elementoRoot = document.getElementById('root');
 // función para modificar el DOM en la pages carrito para ver las tarjetas seleccionadas
-function crearTarjetaCarrito(juego) {
+function crearTarjetaCarrito() {
     // div padre
     const tarjeta = document.createElement('div');
     tarjeta.classList.add('tarjeta');
     // div hijo1
-    const hijo1Tarjeta = document.createElement('div');
-    tarjeta.classList.add('imagenTarjeta');
-    tarjeta.appendChild(hijo1Tarjeta);
+    const hijo1 = document.createElement('div');
+    hijo1.classList.add('imagenTarjeta');
+    tarjeta.appendChild(hijo1);
         // div hijo del hijo1
-    const hijohijo1 = document.createElement('img');
-    hijohijo1.classList.add('imgTarjeta');
-    // hijo1Tarjeta.appendChild('hijohijo1');
+    const hijoimagen = document.createElement('img');
+    hijoimagen.classList.add('imgTarjeta');
+    hijoimagen.src = '/img/dark-souls-3.jpg';
+    hijo1.appendChild(hijoimagen);
+    // tarjeta.appendChild(hijoimagen);
     // div hijo2
-    const hijo2Tarjeta = document.createElement('div');
-    hijo1Tarjeta.appendChild('hijo2Tarjeta');
+    const hijo2 = document.createElement('div');
+    tarjeta.appendChild(hijo2);
         //div hijo del hijo2
-    const hijohijo2 = document.createElement('div');
-    hijo2Tarjeta.appendChild('div');
-            // hijos del hijo del hijo2
-    const hijohijohijo2 = document.createElement('h5');
-    hijohijo2.appendChild('hijohijohijo2');
-    const textoh5 = document.createTextNode('Dark Souls');
-    hijohijohijo2.appendChild(textoh5);
-    const hijo2hijohijo3 = document.createElement('p');
-    hijohijo2.appendChild('hijohijohijo3')
-    const textop = document.createTextNode('Precio: $1234');
+    const tituloParrafo = document.createElement('div');
+    hijo2.appendChild(tituloParrafo);
+            // textos
+    const titulo = document.createElement('h5');
+    tituloParrafo.appendChild(titulo);
+    const textoh5 = document.createTextNode('acá va el nombre del juego');
+    titulo.appendChild(textoh5);
+    const parrafop = document.createElement('p');
+    tituloParrafo.appendChild(parrafop)
+    const textop = document.createTextNode('acá va el precio del juego');
+    parrafop.appendChild(textop);
+    
     // div hijo3
-    const hijo3Tarjeta = document.createElement('div');
-    hijo1Tarjeta.appendChild('hijo3Tarjeta');
+    const hijo3 = document.createElement('div');
+    tarjeta.appendChild(hijo3);
         // hijo del hijo3
-    const hijohijo3 = document.createElement('button');
-    hijo3Tarjeta.appendChild('hijohijo3');
-    hijohijo3.classList.add('btn', 'btn-danger');
+    const quitarDelCarrito = document.createElement('button');
+    hijo3.appendChild(quitarDelCarrito);
+    quitarDelCarrito.classList.add('btn', 'btn-danger');
+
+    elementoRoot.appendChild(tarjeta);
 }
+
+crearTarjetaCarrito();
