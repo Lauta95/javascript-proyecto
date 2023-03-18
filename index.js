@@ -111,8 +111,12 @@ function crearTarjetaCarrito() {
     const quitarDelCarrito = document.createElement('button');
     hijo3.appendChild(quitarDelCarrito);
     quitarDelCarrito.classList.add('btn', 'btn-danger');
+    const textoBotonQuitar = document.createTextNode('Quitar del carrito');
+    quitarDelCarrito.appendChild(textoBotonQuitar);
 
     elementoRoot.appendChild(tarjeta);
 }
+
+// listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = crearTarjetaCarrito();
 
 crearTarjetaCarrito();
