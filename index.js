@@ -55,6 +55,13 @@ function botonComprar(id) {
         if (id == juegos[i].id) {
             nuevoCarro.agregarJuego(juegos[i]);
             nuevoCarro.guardarLocal();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Juego agregado',
+                showConfirmButton: false,
+                timer: 600
+              })
         }
     }
 }
