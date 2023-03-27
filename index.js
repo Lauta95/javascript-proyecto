@@ -41,7 +41,8 @@ class Carrito {
             total += juego.precio;
         }
         return `
-        El total es $${total}`;
+        <hr class="dropdown-divider">
+        <div class= text-center>El total es $${total}</div>`;
     }
 }
 // Se crea un nuevo carro para guardar los elementos en la clase carrito
