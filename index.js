@@ -11,21 +11,16 @@ class Carrito {
     constructor() {
         this.carrito = [];
     }
-    // Se crean los 3 métodos para agregar quitar y listar.
-    // set
+    // Métodos
     agregarJuego(juegoAgregado) {
         this.carrito.push(juegoAgregado);
     }
-    // delete
     quitarJuego(id) {
         this.carrito = this.carrito.filter(juego => juego.id !== id);
     }
-
     getCarrito() {
-      return this.carrito;
+        return this.carrito;
     }
-
-    // get
     listarJuegos() {
         return this.carrito.map(juego => `<li><a class="dropdown-item" href="#">${juego.nombre}: $${juego.precio}</a></li>`);
     }
@@ -39,7 +34,7 @@ class Carrito {
             this.carrito = JSON.parse(guardar);
         }
     }
-    mostrarTotal(){
+    mostrarTotal() {
         let total = 0;
         for (let i = 0; i < this.carrito.length; i++) {
             const juego = this.carrito[i] // -> Juego;
@@ -61,20 +56,18 @@ let juego5 = new Juego(5, "Dead Space", 13998);
 let juego6 = new Juego(6, "Rust", 4271);
 let juego7 = new Juego(7, "Red Dead Redemption", 19773);
 let juego8 = new Juego(8, "Spider Man", 8748);
-
 const juegos = [juego1, juego2, juego3, juego4, juego5, juego6, juego7, juego8];
-
 function botonComprar(id) {
-    // ver si ya existe con un condicional if si da verdadero es porque encontró un juego que ya esta en el carrito
-    if(nuevoCarro.getCarrito().find(juego => juego.id == id)) {
+    // El primer condicional es para ver si ya existe, si da verdadero es porque encontró un juego que ya esta en el carrito.
+    if (nuevoCarro.getCarrito().find(juego => juego.id == id)) {
         Swal.fire({
             position: 'center',
             icon: 'warning',
             title: 'No puedes comprar el mismo juego',
             showConfirmButton: false,
             timer: 1500
-          })
-      return
+        })
+        return
     }
     for (let i = 0; i < juegos.length; i++) {
         if (id == juegos[i].id) {
@@ -86,7 +79,7 @@ function botonComprar(id) {
                 title: 'Juego agregado',
                 showConfirmButton: false,
                 timer: 600
-              })
+            })
         }
     }
 }
@@ -104,15 +97,11 @@ const listarEnCarrito = document.getElementById("listarEnCarrito");
 listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos() + nuevoCarro.mostrarTotal();
 // se crea una funcion para poder agregar el jpg de las imagenes
 function formatearNombre(nombreJuego) {
-  // "Dark Souls 3"
-  // ["dark", "souls", 3]
-  // dark-souls-3
-  // dark-souls-3.jpg
-  return nombreJuego.toLowerCase().split(" ").join("-");
+    return nombreJuego.toLowerCase().split(" ").join("-");
 }
 // Tomo el elemento root
 const elementoRoot = document.getElementById('root');
-// función para modificar el DOM en la pages carrito para ver las tarjetas seleccionadas
+// Función para modificar el DOM en la pages carrito para ver las tarjetas seleccionadas
 function crearTarjetaCarrito(id, nombre, precio) {
     // div padre
     const tarjeta = document.createElement('div');
@@ -121,7 +110,7 @@ function crearTarjetaCarrito(id, nombre, precio) {
     const hijo1 = document.createElement('div');
     hijo1.classList.add('imagenTarjeta');
     tarjeta.appendChild(hijo1);
-        // div hijo del hijo1
+    // div hijo del hijo1
     const hijoimagen = document.createElement('img');
     hijoimagen.classList.add('imgTarjeta');
     hijoimagen.src = `/img/${formatearNombre(nombre)}.jpg`;
@@ -130,10 +119,10 @@ function crearTarjetaCarrito(id, nombre, precio) {
     // div hijo2
     const hijo2 = document.createElement('div');
     tarjeta.appendChild(hijo2);
-        //div hijo del hijo2
+    //div hijo del hijo2
     const tituloParrafo = document.createElement('div');
     hijo2.appendChild(tituloParrafo);
-            // textos
+    // textos
     const titulo = document.createElement('h5');
     tituloParrafo.appendChild(titulo);
     const textoh5 = document.createTextNode(nombre);
@@ -142,16 +131,15 @@ function crearTarjetaCarrito(id, nombre, precio) {
     tituloParrafo.appendChild(parrafop)
     const textop = document.createTextNode(precio);
     parrafop.appendChild(textop);
-    
     // div hijo3
     const hijo3 = document.createElement('div');
     tarjeta.appendChild(hijo3);
-        // hijo del hijo3
+    // hijo del hijo3
     const quitarDelCarrito = document.createElement('button');
     quitarDelCarrito.onclick = () => {
-      botonQuitar(id)
-    //   se recarga la página cada vez que quitamos un juego
-      window.location.reload();
+        botonQuitar(id)
+        // se recarga la página cada vez que quitamos un juego
+        window.location.reload();
     };
     hijo3.appendChild(quitarDelCarrito);
     quitarDelCarrito.classList.add('btn', 'btn-danger');
@@ -160,8 +148,5 @@ function crearTarjetaCarrito(id, nombre, precio) {
 
     elementoRoot.appendChild(tarjeta);
 }
-
-// listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = crearTarjetaCarrito();
-// crear una tarjeta por cada juego de mi carrito
+// Crear una tarjeta por cada juego de mi carrito
 nuevoCarro.getCarrito().forEach(juego => crearTarjetaCarrito(juego.id, juego.nombre, juego.precio));
-// crearTarjetaCarrito(1, "GTA V", 1500);
