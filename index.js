@@ -24,7 +24,7 @@ class Carrito {
     listarJuegos() {
         return this.carrito.map(juego => `<li><a class="dropdown-item" href="#">${juego.nombre}: $${juego.precio}</a></li>`);
     }
-    // métodos para guardar en local storage
+    // Métodos para guardar en local storage
     guardarLocal() {
         localStorage.setItem('ID', JSON.stringify(this.carrito));
     }
@@ -37,7 +37,7 @@ class Carrito {
     mostrarTotal() {
         let total = 0;
         for (let i = 0; i < this.carrito.length; i++) {
-            const juego = this.carrito[i] // -> Juego;
+            const juego = this.carrito[i]
             total += juego.precio;
         }
         return `
@@ -96,7 +96,7 @@ function botonQuitar(id) {
 const listarEnCarrito = document.getElementById("listarEnCarrito");
 
 listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos() + nuevoCarro.mostrarTotal();
-// se crea una funcion para poder agregar el jpg de las imagenes
+// Se crea una funcion para poder agregar el jpg de las imagenes
 function formatearNombre(nombreJuego) {
     return nombreJuego.toLowerCase().split(" ").join("-");
 }
@@ -104,26 +104,26 @@ function formatearNombre(nombreJuego) {
 const elementoRoot = document.getElementById('root');
 // Función para modificar el DOM en la pages carrito para ver las tarjetas seleccionadas
 function crearTarjetaCarrito(id, nombre, precio) {
-    // div padre
+    // Div padre
     const tarjeta = document.createElement('div');
     tarjeta.classList.add('tarjeta');
-    // div hijo1
+    // Div hijo1
     const hijo1 = document.createElement('div');
     hijo1.classList.add('imagenTarjeta');
     tarjeta.appendChild(hijo1);
-    // div hijo del hijo1
+    // Div hijo del hijo1
     const hijoimagen = document.createElement('img');
     hijoimagen.classList.add('imgTarjeta');
     hijoimagen.src = `/img/${formatearNombre(nombre)}.jpg`;
     hijo1.appendChild(hijoimagen);
-    // tarjeta.appendChild(hijoimagen);
-    // div hijo2
+    // Tarjeta.appendChild(hijoimagen);
+    // Div hijo2
     const hijo2 = document.createElement('div');
     tarjeta.appendChild(hijo2);
-    //div hijo del hijo2
+    //Div hijo del hijo2
     const tituloParrafo = document.createElement('div');
     hijo2.appendChild(tituloParrafo);
-    // textos
+    // Textos
     const titulo = document.createElement('h5');
     tituloParrafo.appendChild(titulo);
     const textoh5 = document.createTextNode(nombre);
@@ -132,14 +132,14 @@ function crearTarjetaCarrito(id, nombre, precio) {
     tituloParrafo.appendChild(parrafop)
     const textop = document.createTextNode(precio);
     parrafop.appendChild(textop);
-    // div hijo3
+    // Div hijo3
     const hijo3 = document.createElement('div');
     tarjeta.appendChild(hijo3);
-    // hijo del hijo3
+    // Hijo del hijo3
     const quitarDelCarrito = document.createElement('button');
     quitarDelCarrito.onclick = () => {
         botonQuitar(id)
-        // se recarga la página cada vez que quitamos un juego
+        // Se recarga la página cada vez que quitamos un juego
         window.location.reload();
     };
     hijo3.appendChild(quitarDelCarrito);
