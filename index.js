@@ -130,7 +130,7 @@ function crearTarjetaCarrito(id, nombre, precio) {
     titulo.appendChild(textoh5);
     const parrafop = document.createElement('p');
     tituloParrafo.appendChild(parrafop)
-    const textop = document.createTextNode(precio);
+    const textop = document.createTextNode(`$${precio}`);
     parrafop.appendChild(textop);
     // Div hijo3
     const hijo3 = document.createElement('div');
