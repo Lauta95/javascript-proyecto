@@ -49,7 +49,6 @@ class Carrito {
 let nuevoCarro = new Carrito();
 nuevoCarro.cargarLocal()
 
-
 // Se arma una función asíncrona para traer los juegos desde el archivo json
 let juegos;
 async function traerJuegos() {
@@ -60,7 +59,6 @@ async function traerJuegos() {
     juegos = result.juegos.map(juego => new Juego(juego.id, juego.nombre, juego.precio));
     console.log(juegos);
 }
-
 traerJuegos();
 
 function botonComprar(id) {
@@ -98,7 +96,6 @@ function botonQuitar(id) {
         }
     }
 }
-
 const listarEnCarrito = document.getElementById("listarEnCarrito");
 
 listarEnCarrito.onclick = () => document.getElementById("lista").innerHTML = nuevoCarro.listarJuegos() + nuevoCarro.mostrarTotal();
