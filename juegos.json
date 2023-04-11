@@ -1,0 +1,44 @@
+{
+    "juegos": [
+        {
+            "id": "1",
+            "nombre": "Dark Souls 3",
+            "precio": "8599"
+        },
+        {
+            "id": "2",
+            "nombre": "GTA V",
+            "precio": "8599"
+        },
+        {
+            "id": "3",
+            "nombre": "Resident Evil 4",
+            "precio": "5500"
+        },
+        {
+            "id": "4",
+            "nombre": "God Of War",
+            "precio": "4199"
+        },
+        {
+            "id": "5",
+            "nombre": "Dead Space",
+            "precio": "13998"
+        },
+        {
+            "id": "6",
+            "nombre": "Rust",
+            "precio": "4271"
+        },
+        {
+            "id": "7",
+            "nombre": "Red Dead Redemption",
+            "precio": "19773"
+        },
+        {
+            "id": "8",
+            "nombre": "Spider Man",
+            "precio": "8748"
+        }
+    ]
+}
