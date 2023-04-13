@@ -117,7 +117,7 @@ function crearTarjetaCarrito(id, nombre, precio) {
     // Div hijo del hijo1
     const hijoimagen = document.createElement('img');
     hijoimagen.classList.add('imgTarjeta');
-    hijoimagen.src = `/img/${formatearNombre(nombre)}.jpg`;
+    hijoimagen.src = `./img/${formatearNombre(nombre)}.jpg`;
     hijo1.appendChild(hijoimagen);
     // Tarjeta.appendChild(hijoimagen);
     // Div hijo2
